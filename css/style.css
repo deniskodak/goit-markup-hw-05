@@ -102,18 +102,35 @@ img {
 
   color: var(--title-text-color);
   font-weight: 500;
-  line-height: 1.14;
+  line-height: 1.143;
   letter-spacing: 0.02em;
 }
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-text-color);
 }
+.site-nav .link {
+  position: relative;
+}
 
 /* Стиль "Текущая страница" */
-.site-nav .link.current {
+.link.current {
   color: var(--accent-text-color);
 }
+.site-nav .link:hover:after,
+.link.current::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-text-color);
+}
+
 /* Стили для логотипа */
 .logo {
   display: block;
@@ -194,6 +211,7 @@ img {
     ),
     url('../images/hero_bg.jpg');
   max-width: 1600px;
+  width: 100%;
   height: 600px;
   background-position: center;
   background-size: cover;
