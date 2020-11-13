@@ -19,6 +19,9 @@
 
   --portfolio-border: #eeeeee;
   --header-border: #ececec;
+
+  --pseudo-bg-color: rgba(47, 48, 58, 0.8);
+  --overlay-secondary: rgba(33, 150, 243, 0.9);
 }
 /* Отключает точки в списках */
 .list {
@@ -46,7 +49,7 @@ body {
 }
 img {
   display: block;
-  min-width: 100%;
+  max-width: 100%;
   height: auto;
 }
 /* Стили для контейнера */
@@ -271,7 +274,26 @@ img {
   flex-wrap: wrap;
 }
 .service-list .item {
+  position: relative;
   width: 370px;
+}
+.service-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  min-height: 70px;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  background-color: var(--pseudo-bg-color);
+}
+
+.service-overlay .text {
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+  font-weight: 700;
 }
 .service-list .item:not(:nth-child(3n)) {
   margin-right: 30px;
@@ -397,12 +419,35 @@ img {
 
   border: 1px solid var(--portfolio-border);
 }
+.portfolio-thumb {
+  position: relative;
+}
+.portfolio-thumb::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-secondary);
+}
+.thumb-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 322px;
+
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--primary-white-color);
+}
 .porfolio-link:hover,
 .porfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .porfolio-content {
+  width: 100%;
   padding: 20px 24px;
 }
 .portfolio-list .text {
