@@ -108,6 +108,8 @@ img {
   font-weight: 500;
   line-height: 1.143;
   letter-spacing: 0.02em;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav .link:hover,
 .site-nav .link:focus {
@@ -121,7 +123,7 @@ img {
 .link.current {
   color: var(--accent-text-color);
 }
-.site-nav .link:hover:after,
+
 .link.current::after {
   position: absolute;
   bottom: 0;
@@ -376,15 +378,15 @@ img {
 
   fill: var(--socials-color);
 }
-
-.icon-clients:hover,
-.icon-clients:focus {
-  fill: var(--accent-text-color);
-  border-color: var(--accent-text-color);
-}
 .icon-clients {
   border: 1px solid var(--socials-color);
   border-radius: 4px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.clients-link:hover .icon-clients,
+.clients-link:focus .icon-clients {
+  fill: var(--accent-text-color);
+  border-color: var(--accent-text-color);
 }
 
 /* Стили для списка портфолио */
@@ -419,34 +421,56 @@ img {
   flex-direction: column;
 
   border: 1px solid var(--portfolio-border);
-}
-.portfolio-thumb {
-  position: relative;
-}
-.portfolio-thumb::before {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--overlay-secondary);
-}
-.thumb-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 322px;
 
-  font-size: 18px;
-  line-height: 1.55;
-  color: var(--primary-white-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .porfolio-link:hover,
 .porfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
+/* Styles for portfolio cards overlay */
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-thumb::before {
+  position: absolute;
+  content: '';
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-secondary);
+  transform: translateY(100%);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.porfolio-link:hover .portfolio-thumb::before,
+.porfolio-link:focus .portfolio-thumb::before {
+  transform: translateY(0);
+}
+
+.thumb-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 130%);
+
+  width: 322px;
+
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--primary-white-color);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.porfolio-link:hover .thumb-text,
+.porfolio-link:focus .thumb-text {
+  transform: translate(-50%, -50%);
+}
+
 .porfolio-content {
   width: 100%;
   padding: 20px 24px;
@@ -476,6 +500,8 @@ img {
   font-size: 16px;
   border: transparent;
   border-radius: 4px;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button.primary {
   padding: 10px 32px;
@@ -541,6 +567,8 @@ img {
   display: inline-block;
 
   color: var(--footer-contacts-color);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts .link:hover,
 .contacts .link:focus {
@@ -577,6 +605,8 @@ img {
   height: 44px;
 
   border-radius: 50%;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .socials-link.company {
   fill: var(--primary-white-color);
